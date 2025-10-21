@@ -1,93 +1,141 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Модель руху планет Сонячної системи</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>🌍 Інформаційна модель руху планет Сонячної системи <br>
-            Розробка Дениса Байрачного🪐</h1>
-        
-        <div class="formula">
-            <h3>📐 Формула розрахунку періоду обертання:</h3>
-            <p><strong>T<sub>планети</sub> = T<sub>Меркурія</sub> × Маркер заповнення</strong></p>
-            <p style="font-size: 14px; margin-top: 10px;">де T<sub>Меркурія</sub> ≈ 88 земних днів</p>
-        </div>
+      <h1>
+        🌍 Інформаційна модель руху планет Сонячної системи <br />
+        Розробка Дениса Байрачного🪐
+      </h1>
 
-        <table id="planetsTable">
-            <thead>
-                <tr>
-                    <th>Планета</th>
-                    <th>Маркер заповнення</th>
-                    <th>Період обертання (днів)</th>
-                    <th>Період обертання (років)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="planet-name">☿️ Меркурій</td>
-                    <td><input type="number" id="mercury-marker" value="1" step="0.01"></td>
-                    <td id="mercury-days">88</td>
-                    <td id="mercury-years">0.24</td>
-                </tr>
-                <tr>
-                    <td class="planet-name">♀️ Венера</td>
-                    <td><input type="number" id="venus-marker" value="2.55" step="0.01"></td>
-                    <td id="venus-days">224</td>
-                    <td id="venus-years">0.62</td>
-                </tr>
-                <tr>
-                    <td class="planet-name">🌍 Земля</td>
-                    <td><input type="number" id="earth-marker" value="4.15" step="0.01"></td>
-                    <td id="earth-days">365</td>
-                    <td id="earth-years">1.00</td>
-                </tr>
-                <tr>
-                    <td class="planet-name">♂️ Марс</td>
-                    <td><input type="number" id="mars-marker" value="7.81" step="0.01"></td>
-                    <td id="mars-days">687</td>
-                    <td id="mars-years">1.88</td>
-                </tr>
-                <tr>
-                    <td class="planet-name">♃ Юпітер</td>
-                    <td><input type="number" id="jupiter-marker" value="49.32" step="0.01"></td>
-                    <td id="jupiter-days">4339</td>
-                    <td id="jupiter-years">11.86</td>
-                </tr>
-                <tr>
-                    <td class="planet-name">♄ Сатурн</td>
-                    <td><input type="number" id="saturn-marker" value="122.53" step="0.01"></td>
-                    <td id="saturn-days">10783</td>
-                    <td id="saturn-years">29.46</td>
-                </tr>
-                <tr>
-                    <td class="planet-name">♅ Уран</td>
-                    <td><input type="number" id="uranus-marker" value="349.13" step="0.01"></td>
-                    <td id="uranus-days">30723</td>
-                    <td id="uranus-years">84.01</td>
-                </tr>
-                <tr>
-                    <td class="planet-name">♆ Нептун</td>
-                    <td><input type="number" id="neptune-marker" value="685.47" step="0.01"></td>
-                    <td id="neptune-days">60281</td>
-                    <td id="neptune-years">164.88</td>
-                </tr>
-            </tbody>
-        </table>
+      <div class="formula">
+        <h3>📐 Формула розрахунку періоду обертання:</h3>
+        <p>
+          <strong
+            >T<sub>планети</sub> = T<sub>Меркурія</sub> × Маркер
+            заповнення</strong
+          >
+        </p>
+        <p style="font-size: 14px; margin-top: 10px">
+          де T<sub>Меркурія</sub> ≈ 88 земних днів
+        </p>
+      </div>
 
-        <div style="text-align: center;">
-            <button onclick="calculate()">🔄 Перерахувати періоди</button>
-            <button onclick="resetValues()">↺ Скинути значення</button>
-        </div>
+      <table id="planetsTable">
+        <thead>
+          <tr>
+            <th>Планета</th>
+            <th>Маркер заповнення</th>
+            <th>Період обертання (днів)</th>
+            <th>Період обертання (років)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="planet-name">☿️ Меркурій</td>
+            <td>
+              <input type="number" id="mercury-marker" value="1" step="0.01" />
+            </td>
+            <td id="mercury-days">88</td>
+            <td id="mercury-years">0.24</td>
+          </tr>
+          <tr>
+            <td class="planet-name">♀️ Венера</td>
+            <td>
+              <input type="number" id="venus-marker" value="2.55" step="0.01" />
+            </td>
+            <td id="venus-days">224</td>
+            <td id="venus-years">0.62</td>
+          </tr>
+          <tr>
+            <td class="planet-name">🌍 Земля</td>
+            <td>
+              <input type="number" id="earth-marker" value="4.15" step="0.01" />
+            </td>
+            <td id="earth-days">365</td>
+            <td id="earth-years">1.00</td>
+          </tr>
+          <tr>
+            <td class="planet-name">♂️ Марс</td>
+            <td>
+              <input type="number" id="mars-marker" value="7.81" step="0.01" />
+            </td>
+            <td id="mars-days">687</td>
+            <td id="mars-years">1.88</td>
+          </tr>
+          <tr>
+            <td class="planet-name">♃ Юпітер</td>
+            <td>
+              <input
+                type="number"
+                id="jupiter-marker"
+                value="49.32"
+                step="0.01"
+              />
+            </td>
+            <td id="jupiter-days">4339</td>
+            <td id="jupiter-years">11.86</td>
+          </tr>
+          <tr>
+            <td class="planet-name">♄ Сатурн</td>
+            <td>
+              <input
+                type="number"
+                id="saturn-marker"
+                value="122.53"
+                step="0.01"
+              />
+            </td>
+            <td id="saturn-days">10783</td>
+            <td id="saturn-years">29.46</td>
+          </tr>
+          <tr>
+            <td class="planet-name">♅ Уран</td>
+            <td>
+              <input
+                type="number"
+                id="uranus-marker"
+                value="349.13"
+                step="0.01"
+              />
+            </td>
+            <td id="uranus-days">30723</td>
+            <td id="uranus-years">84.01</td>
+          </tr>
+          <tr>
+            <td class="planet-name">♆ Нептун</td>
+            <td>
+              <input
+                type="number"
+                id="neptune-marker"
+                value="685.47"
+                step="0.01"
+              />
+            </td>
+            <td id="neptune-days">60281</td>
+            <td id="neptune-years">164.88</td>
+          </tr>
+        </tbody>
+      </table>
 
-        <div class="note">
-            <strong>📝 Примітка:</strong> Маркер заповнення — це коефіцієнт, який показує, у скільки разів період обертання планети більший за період обертання Меркурія. Змініть значення маркерів та натисніть "Перерахувати періоди" для оновлення таблиці.
-        </div>
+      <div style="text-align: center">
+        <button onclick="calculate()">🔄 Перерахувати періоди</button>
+        <button onclick="resetValues()">↺ Скинути значення</button>
+      </div>
+
+      <div class="note">
+        <strong>📝 Примітка:</strong> Маркер заповнення — це коефіцієнт, який
+        показує, у скільки разів період обертання планети більший за період
+        обертання Меркурія. Змініть значення маркерів та натисніть "Перерахувати
+        періоди" для оновлення таблиці.
+      </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <script src="./js/script.js"></script>
+  </body>
 </html>
